@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             name:'mercury',
-            img: 'images/Mercury_Power .png'
+            img: 'images/Mercury_Power.png'
         },
         {
             name:'venus',
@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
+    const cheerLeader = document.querySelector('#cheerleader')
     var cardsChosen = []
     var cardsChosenId = []
     var cardsWon = []
@@ -65,6 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
             var card = document.createElement('img')
             card.setAttribute('src', 'images/blank.png')
             card.setAttribute('data-id', i)
+            card.style.border = '5px solid hsl(300, 80%, 75%)'
+            card.style.borderRadius = '5px'
+            card.style.margin = '5px'
             card.addEventListener('click', flipCard)
             grid.appendChild(card)
         }
@@ -80,10 +84,10 @@ function checkForMatch() {
     if(optionOneId == optionTwoId) {
       cards[optionOneId].setAttribute('src', 'images/blank.png')
       cards[optionTwoId].setAttribute('src', 'images/blank.png')
-      alert('You have clicked the same image!')
+      cheerLeader.textContent = 'Oops, try clicking somewhere else!'
     }
     else if (cardsChosen[0] === cardsChosen[1]) {
-      alert('You found a match')
+      cheerLeader.textContent = 'Like, oh my god! You got one!'
       cards[optionOneId].setAttribute('src', 'images/empty.png')
       cards[optionTwoId].setAttribute('src', 'images/empty.png')
       cards[optionOneId].removeEventListener('click', flipCard)
@@ -92,13 +96,14 @@ function checkForMatch() {
     } else {
       cards[optionOneId].setAttribute('src', 'images/blank.png')
       cards[optionTwoId].setAttribute('src', 'images/blank.png')
-      alert('Sorry, try again')
+      cheerLeader.textContent = 'Keep trying! You got this!'
     }
     cardsChosen = []
     cardsChosenId = []
     resultDisplay.textContent = cardsWon.length
     if  (cardsWon.length === cardArray.length/2) {
       resultDisplay.textContent = 'Congratulations! You found them all!'
+      cheerLeader.textContent = 'Reload the page to play again!'
     }
   }
 
