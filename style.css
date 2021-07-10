@@ -1,6 +1,6 @@
 *{
     box-sizing: border-box;
-    font-family: 'Lobster Two', cursive;
+    
 }
 
 body {
@@ -17,6 +17,7 @@ h1, h3, h2 {
 h1 {
     font-size: 4rem;
     text-shadow: 2px 2px hsl(250, 90%, 90%);
+    font-family: 'Lobster Two', cursive;
 }
 
 h2 {
@@ -27,17 +28,20 @@ h2 {
     border: 10px solid hsl(200, 85%, 75%);
     border-radius:  10px;
     text-shadow: 1px 1px hsl(250, 90%, 90%);
+    font-family: 'Encode Sans Expanded', sans-serif;
 }
 
 h3 {
     font-size: 2rem;
     width: max-content;
+    font-family: 'Encode Sans Expanded', sans-serif;
 
 }
 
 span {
     color: hsl(100, 85%, 75%);
     font-size: 3rem;
+    font-family: 'Encode Sans Expanded', sans-serif;
 }
 
 .grid {
